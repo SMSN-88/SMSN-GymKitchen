@@ -7,7 +7,11 @@
   padding: 0;
   margin: 0;
 }
-
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 .html {
   font-size: 62.5%; /* 10px base for easy rem calculations */
 }
@@ -85,6 +89,53 @@ body {
   color: #117964;
 }
 
+/* About Section Images */
+.about-img img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Food Section Images */
+.food-container img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Contact Section Images */
+.contact-img img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Reviews Section (Customer Photos) */
+.customer-photo img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Food Menu Images */
+.food-menu-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+/* Hero Image Area */
+.img-area {
+  height: auto; /* Allow content-based height */
+  min-height: 40vh; /* Ensure visibility even on small screens */
+  background-size: cover;
+  background-position: center;
+}
+
+
 /* Responsive navbar */
 @media (max-width: 768px) {
   .menu-items {
@@ -116,7 +167,7 @@ body {
       rgba(255, 255, 255, 0.336)
     ),
     url("https://www.mealpro.net/wp-content/uploads/2019/06/MealPro-Chicken-Rice-Gym-Meal-Prep.jpg");
-  background-size: cover;
+ background-size: contain;
   background-position: center;
   display: flex;
   align-items: center;
@@ -157,6 +208,28 @@ body {
   max-height: 400px;
   object-fit: cover;
 }
+
+.about-img img,
+  .food-container img,
+  .contact-img img,
+  .customer-photo img {
+    height: auto; /* Prevent overly tall images */
+  }
+
+  .food-container {
+    grid-template-columns: 1fr; /* Stack food items */
+    gap: 1rem;
+  }
+
+  .food-menu-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .food-menu-container img {
+    width: 80%; /* Reduce image size for smaller screens */
+    max-width: 300px; /* Prevent overly large images */
+  }
 
 @media (max-width: 768px) {
   .about-img,
@@ -212,4 +285,28 @@ body {
 
 #footer p {
   font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+  .about-img img,
+  .food-container img,
+  .contact-img img,
+  .customer-photo img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto; /* Center images */
+  }
+
+  .food-menu-container img {
+    width: 70%;
+    max-width: 200px; /* Further reduce size */
+  }
+
+  .img-area h1 {
+    font-size: 2rem; /* Scale down large text */
+  }
+
+  .img-area p {
+    font-size: 1.2rem; /* Scale down description text */
+  }
 }
